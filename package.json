@@ -17,6 +17,8 @@
     "express": "^4.15.3",
     "graphql": "^0.9.6",
     "graphql-server-express": "^0.7.2",
-    "graphql-tools": "^0.11.0"
+    "graphql-tools": "^0.11.0",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.10.1"
   }
 }

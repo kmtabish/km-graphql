@@ -1,0 +1,43 @@
+ 
+ //Query
+ query getData($userId:Int){
+   tasks(userId:$userId){
+     name,
+     id,
+     isCompleted,
+    priority,
+    users(id:$userId){
+       name
+     }
+   }
+ }
+
+//variable
+ {
+   "userId": 702
+ }
+
+
+
+
+
+
+//Mutation Query
+mutation addData($id:Int, $name:String, $date:String, $isCompleted:Boolean, $priority:Int, $userId:Int){
+  addTask(id:$id, name:$name, date: $date,isCompleted:$isCompleted, priority:$priority, userId:$userId){
+   name,
+    id,
+    userId
+    
+  }
+}
+
+//Global Variable
+ {
+    "id": 111,
+  "name": "KMT11",
+  "date": "10 May 2016",
+  "isCompleted": true,
+  "priority": 2,
+  "userId": 702
+ }

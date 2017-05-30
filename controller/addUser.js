@@ -1,21 +1,20 @@
 const db = require('./../db/dbconnect');
-const task = require('./../db/schema/task');
+const user = require('./../db/schema/userInfo');
 module.exports = {
   post:function(req, res){
     console.log(req.body)
     db.on('connected',()=> {console.log('MongoDB Connected')});
-    var addTask = new task({
+    var addUser = new user({
       id:req.body.id,
       name:req.body.name,
-      date: new Date(req.body.date),
-      isCompleted: req.body.isCompleted,
-      priority: req.body.priority,
-      userId:req.body.userId
+      DOB: new Date(req.body.DOB),
+      mobile: req.body.mobile,
+      gender: req.body.gender  
     })
 
-    addTask.save(function(err){
+    addUser.save(function(err){
       if (err) throw err;
-      console.log('Task saved successfully!');
+      console.log('User saved successfully!');
      res.status(200).send({status:"success"});
     })
   }
